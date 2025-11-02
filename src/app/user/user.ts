@@ -1,5 +1,6 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, Output,EventEmitter} from '@angular/core';
 import { USERS } from '../fake_users';
+
 
 @Component({
   selector: 'app-user',
@@ -10,16 +11,18 @@ import { USERS } from '../fake_users';
 export class User {
   @Input() name: string = '';
   @Input() avatar: string = '';
+  @Input({required: true}) id!: string
 
-  selectedUser = USERS[0];
+  @Output() userClicked = new EventEmitter<string>()
+
+
 
   get userImgPath() {
-    return 'assets/users/users/' + this.avatar;
+    return 'assets/users/' + this.avatar;
   }
 
-  
-  changeUser(){
-    const randomIndex = Math.floor(Math.random() * USERS.length);
-    this.selectedUser = USERS[randomIndex];
+  onUserClicked(){
+    this.userClicked.emit(this.id)
   }
+  
 }

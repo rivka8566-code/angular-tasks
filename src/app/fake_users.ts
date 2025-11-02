@@ -1,5 +1,10 @@
 export const USERS = [
   {
+    id: 'u0',
+    name: 'Default user',
+    avatar: 'unknown-user.png',
+  },
+  {
     id: 'u1',
     name: 'Yael Levi',
     avatar: 'user-1.jpg',

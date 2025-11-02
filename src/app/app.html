@@ -2,22 +2,26 @@
 <main>
     <ul id="users">
         <li>
-            <app-user [name]="users[0].name" [avatar]="users[0].avatar"></app-user>
+            <app-user [name]="users[1].name" [avatar]="users[1].avatar" [id]="users[1].id" (userClicked)="onUserSelected($event)"></app-user>
         </li>
         <li>
-            <app-user [name]="users[1].name" [avatar]="users[1].avatar"></app-user>
+            <app-user [name]="users[2].name" [avatar]="users[2].avatar" [id]="users[2].id" (userClicked)="onUserSelected($event)"></app-user>
         </li>
         <li>
-            <app-user [name]="users[2].name" [avatar]="users[2].avatar"></app-user>
+            <app-user [name]="users[3].name" [avatar]="users[3].avatar" [id]="users[3].id" (userClicked)="onUserSelected($event)"></app-user>
         </li>
         <li>
-            <app-user [name]="users[3].name" [avatar]="users[3].avatar"></app-user>
+            <app-user [name]="users[4].name" [avatar]="users[4].avatar" [id]="users[4].id" (userClicked)="onUserSelected($event)"></app-user>
         </li>
         <li>
-            <app-user [name]="users[4].name" [avatar]="users[4].avatar"></app-user>
+            <app-user [name]="users[5].name" [avatar]="users[5].avatar" [id]="users[5].id" (userClicked)="onUserSelected($event)"></app-user>
         </li>
         <li>
-            <app-user [name]="users[5].name" [avatar]="users[5].avatar"></app-user>
+            <app-user [name]="users[6].name" [avatar]="users[6].avatar" [id]="users[6].id" (userClicked)="onUserSelected($event)"></app-user>
         </li>
     </ul>
+
+    <p>The user who selected: {{selectedUser.name}}</p>
+
+    <!-- <p id="fallback">Select user to view their tasks</p> -->
 </main>
