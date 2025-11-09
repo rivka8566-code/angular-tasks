@@ -2,13 +2,14 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
 import { User } from './user/user';
+import { UsersWithSignals } from './users-with-signals/users-with-signals';
 import { USERS } from './fake_users';
 import { Tasks } from './tasks/tasks'
 //import { UserObj } from './user.model';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, User, Tasks],
+  imports: [RouterOutlet, Header, User, Tasks, UsersWithSignals],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
