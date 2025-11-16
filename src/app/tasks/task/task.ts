@@ -8,5 +8,5 @@ import { TaskObj } from './task.model';
   styleUrl: './task.css'
 })
 export class Task {
-  @Input({required: true}) task!: Task 
+  @Input({required: true}) task!: TaskObj;
 }
