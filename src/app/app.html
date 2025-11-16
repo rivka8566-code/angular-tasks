@@ -3,8 +3,8 @@
     <ul id="users">
         @for (user of users; track user.id) {
             <li>
-                <!-- <app-user [user]="user" [isSelected] = "user.id === selectedUser?.id" (userClicked)="onUserSelected($event)"></app-user> -->
-                <app-users-with-signals [user]="user" [isSelected] = "user.id === selectedUser?.id" (userClicked)="onUserSelected($event)"></app-users-with-signals>
+                <app-user [user]="user" [isSelected] = "user.id === selectedUser?.id" (userClicked)="onUserSelected($event)"></app-user>
+                <!-- <app-users-with-signals [user]="user" [isSelected] = "user.id === selectedUser?.id" (userClicked)="onUserSelected($event)"></app-users-with-signals> -->
             </li>
         }
         
