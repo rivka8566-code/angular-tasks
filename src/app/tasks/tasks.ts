@@ -7,7 +7,7 @@ import { TaskObj } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
-  imports: [Task, NewTask, TaskObj, NewTaskData],
+  imports: [Task, NewTask],
   templateUrl: './tasks.html',
   styleUrl: './tasks.css'
 })
@@ -27,9 +27,12 @@ export class Tasks {
   }
 
   onAddTask(newTask: NewTaskData){
-    const newTask = {
+    const newTask2 = {
       id: 't' + (this.tasks.length) + 1,
-      
+      userId: this.userId,
+      userIdtitle: newTask.title,
+      summary: newTask.summary,
+      dueDate: newTask.dueDate
     }
   }
 }
