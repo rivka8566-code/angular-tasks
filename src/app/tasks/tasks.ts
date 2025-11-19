@@ -28,11 +28,18 @@ export class Tasks {
 
   onAddTask(newTask: NewTaskData){
     const newTask2 = {
-      id: 't' + (this.tasks.length) + 1,
+      id: 't' + (this.tasks.length + 1),
       userId: this.userId,
-      userIdtitle: newTask.title,
+      title: newTask.title,
       summary: newTask.summary,
       dueDate: newTask.dueDate
     }
+
+    this.tasks.push(newTask2);
+    this.showTask = false;
+  }
+
+  Cancel(){
+    this.showTask = false;
   }
 }

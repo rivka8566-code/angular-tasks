@@ -15,6 +15,6 @@
 
     @if(showTask)
     {
-        <app-new-task (addTask) = "onAddTask($event)"></app-new-task>
+        <app-new-task (addTask) = "onAddTask($event)" (cancel) ="Cancel()"></app-new-task>
     }
 </section>

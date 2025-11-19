@@ -10,6 +10,7 @@ import { NewTaskData } from '../task/task.model'
 })
 export class NewTask {
   @Output() addTask = new EventEmitter<NewTaskData>()
+  @Output() cancel = new EventEmitter<void>()
 
   title = "title"
   summary = "summary"
@@ -26,5 +27,9 @@ export class NewTask {
     console.log(this.title);
     console.log(this.summary);
     console.log(this.dueDate);
+  }
+
+  Cancel(){
+    this.cancel.emit();
   }
 }

@@ -1,4 +1,4 @@
-<div class="backdrop"></div>
+<div class="backdrop" (click) = "Cancel()"></div>
 <dialog open>
 <h2>Add Task</h2>
 <form #taskForm = "ngForm" (ngSubmit)="onSubmit(taskForm)">
@@ -27,7 +27,7 @@
     <small class="error-messages">Due time is invalid</small>
 }
 <p class="actions">
-<button type="button">Cancel</button>
+<button type="button" (click)="Cancel()">Cancel</button>
 <button type="submit" [disabled] = "taskForm.form.invalid">Create</button>
 </p>
 </form>
