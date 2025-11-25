@@ -1,4 +1,8 @@
 <app-header></app-header>
+<div class="actions"> 
+  <button>Add User</button> 
+  <button (click) = "ContactUs()">Contact Us</button> 
+</div> 
 <main>
     <ul id="users">
         @for (user of users; track user.id) {
@@ -14,6 +18,10 @@
     }
     @else{
         <p>Please select a user to view his tasks</p>
+    }
+
+    @if(contact){
+        <app-contact-us (cancel) ="Cancel()" (send) = "Send()"></app-contact-us>
     }
     
 
