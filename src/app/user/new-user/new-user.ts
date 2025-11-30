@@ -96,7 +96,7 @@ export class NewUser {
     else {
       this.form.markAllAsTouched();
     }
-    this.form.reset()
+    //this.form.reset()
   }
 
   Cancel() {
