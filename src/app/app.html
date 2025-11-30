@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="actions"> 
-  <button>Add User</button> 
+  <button (click) = "AddUser()">Add User</button> 
   <button (click) = "ContactUs()">Contact Us</button> 
 </div> 
 <main>
@@ -24,5 +24,8 @@
         <app-contact-us (cancel) ="Cancel()" (send) = "Send()"></app-contact-us>
     }
     
+    @if(addUser){
+        <app-new-user (cancel) ="Cancel()" (send) = "onAddUser($event)"></app-new-user>
+    }
 
 </main>

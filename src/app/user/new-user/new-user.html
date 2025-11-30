@@ -1,0 +1,83 @@
+<div class="backdrop" (click)="Cancel()"></div>
+<dialog open>
+    <h4>Add User</h4>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="row" formGroupName="name" id="name" name="name">
+            <div>
+                <p>
+                    <label for="FirstName">First Name</label>
+                    <input id="FirstName" name="FirstName" formControlName="FirstName" type="text" />
+                </p>
+                @if(firstNameInvalid)
+                {
+                <small class="error-messages">First name is invalid</small>
+                }
+            </div>
+
+            <div>
+                <p>
+                    <label for="lastName">Last Name</label>
+                    <input id="lastName" formControlName="LastName" type="text" />
+                </p>
+                @if(lastNameInvalid)
+                {
+                <small class="error-messages">Last name is invalid</small>
+                }
+            </div>
+        </div>
+
+        <p>
+            <label for="email">Email</label>
+            <input id="email" formControlName="email" type="email" />
+        </p>
+        @if(emailInvalid)
+        {
+        <small class="error-messages">Email is invalid</small>
+        }
+
+        <div class="row" formGroupName="passwords">
+            <p>
+                <label for="password">Password</label>
+                <input id="password" formControlName="password" type="password" />
+            </p>
+            @if(passwordInvalid)
+            {
+            <small class="error-messages">Password is invalid</small>
+            }
+            <p>
+                <label for="confirmPassword">Confirm Password</label>
+                <input id="confirmPassword" formControlName="confirmPassword" type="password" />
+            </p>
+            @if(confirmPasswordInvalid)
+            {
+            <small class="error-messages">Confirm password is invalid</small>
+            }
+        </div>
+        @if(matchPasswordsInvalid)
+        {
+        <small class="error-messages">The passwords are not matches</small>
+        }
+
+        <div formArrayName="categories" class="categories-section">
+            <label>Task Categories</label>
+            <div class="row">
+                @for (cat of categories; track $index)
+                {
+                <div class="category-row">
+
+                    <label>
+                        <input type="checkbox" [formControlName]=$index />
+                        {{cat}}
+                    </label>
+
+                </div>
+                }
+            </div>
+        </div>
+        <p class="actions">
+            <button type="button" (click)="Cancel()">Cancel</button>
+            <button type="submit" [disabled]="form.invalid">Send</button>
+        </p>
+    </form>
+</dialog>

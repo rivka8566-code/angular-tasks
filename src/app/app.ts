@@ -6,11 +6,13 @@ import { UsersWithSignals } from './users-with-signals/users-with-signals';
 import { USERS } from './fake_users';
 import { Tasks } from './tasks/tasks'
 import { ContactUs } from './contact-us/contact-us';
+import { NewUser } from './user/new-user/new-user';
+import { UserObj } from './user/user.model';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, User, Tasks, UsersWithSignals, ContactUs],
+  imports: [RouterOutlet, NewUser, Header, User, Tasks, UsersWithSignals, ContactUs],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -19,23 +21,43 @@ export class App {
   protected readonly title = signal('lesson-3');
   selectedUser?: any;
 
-  contact:boolean = false;
+  contact: boolean = false;
 
-  onUserSelected(idUserClicked: string){
-    const newUser =  this.users.find((user)=>user.id == idUserClicked);
-    if(newUser)
+  addUser: boolean = false;
+
+  onUserSelected(idUserClicked: string) {
+    const newUser = this.users.find((user) => user.id == idUserClicked);
+    if (newUser)
       this.selectedUser = newUser
   }
 
-  ContactUs(){
+  ContactUs() {
     this.contact = true;
   }
 
-  Send(){
+  AddUser() {
+    this.addUser = true;
+  }
+
+  Send() {
     this.contact = false;
   }
 
-  Cancel(){
+  onAddUser(formValue: any) {
+    const id = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 9);
+    const fullName = `${formValue.name.FirstName} ${formValue.name.LastName}`.trim();
+    const newUser: UserObj = {
+    id: id,
+    name: fullName,
+    avatar: 'unknown-user.png'
+    };
+
+    this.users.push(newUser)
+    this.addUser = false;
+  }
+
+  Cancel() {
     this.contact = false;
+    this.addUser = false
   }
 }

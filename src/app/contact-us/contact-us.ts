@@ -9,8 +9,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class ContactUs {
   form = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.maxLength(18)]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    name: new FormControl('Example name', [Validators.required, Validators.maxLength(18)]),
+    email: new FormControl('example@gmail.com', [Validators.required, Validators.email]),
     subject: new FormControl('',[Validators.maxLength(50)]),
     message: new FormControl('')
   });
